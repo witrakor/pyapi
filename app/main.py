@@ -25,3 +25,10 @@ app.include_router(file.router)
 async def root():
     
     return {"message": "Hello Toey Narak"}
+
+
+# ถ้ามีโค้ดส่วนนี้ เวลารันให้รันใช้คำสั่ง  python3 -m app.main ก็พอ  
+# แต่ถ้าไม่มีให้ใช้คำสั่ง uvicorn app.main:app --reload
+#if __name__ == "__main__":
+#    import uvicorn
+#    uvicorn.run("app.main:app", host="127.0.0.1", port=8080, reload=True)
