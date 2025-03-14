@@ -25,7 +25,8 @@ app.include_router(file.router)
 @app.get("/")
 async def root():
     to_person = os.getenv("to_person", "you")
-    return {"message": f"Hello {to_person}, I love {to_person}"}
+    database_url = os.getenv("DATABASE_URL", "No database URL found")  # ดึงค่าจาก environment variable
+    return {"message": f"Hello {to_person}, I love {to_person}\n DATABASE_URL={database_url}"}
 
 
 # ถ้ามีโค้ดส่วนนี้ เวลารันให้รันใช้คำสั่ง  python3 -m app.main ก็พอ  
