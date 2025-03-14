@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from .routers import book, user, file
 from fastapi.middleware.cors import CORSMiddleware
+import os
 
 app = FastAPI()
 
@@ -23,8 +24,8 @@ app.include_router(file.router)
 
 @app.get("/")
 async def root():
-    
-    return {"message": "Hello Toey, I love you so much na kub."}
+    to_person = os.getenv("to_person", "you")
+    return {"message": f"Hello {to_person}, I love {to_person}"}
 
 
 # ถ้ามีโค้ดส่วนนี้ เวลารันให้รันใช้คำสั่ง  python3 -m app.main ก็พอ  
